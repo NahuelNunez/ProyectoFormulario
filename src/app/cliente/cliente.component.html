@@ -1,0 +1,32 @@
+<form #formulario="ngForm" (ngSubmit)="onSubmit(formulario)">
+  <input type="text" name="nombre" ngModel required>
+  <input type="number" name="edad" ngModel required>
+  <input type="text" name="amigos" ngModel required>
+  <button type="submit">Enviar</button>
+</form>
+
+<table>
+  <thead>
+    <tr>
+      <th>Nombre</th>
+      <th>Edad</th>
+      <th>Amigos</th>
+      <th>+23 o -23</th>
+      <th>Mejores amigos:</th>
+
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let dato of datos">
+      <td>{{ dato.nombre }}</td>
+      <td>{{ dato.edad }}</td>
+      <td>{{ dato.amigos }}</td>
+      <td *ngIf="dato.edad > 23; else menores">Si es mayor</td>
+      <ng-template #menores>Si es menor</ng-template>
+      <td>
+        <li style="list-style: none;" *ngFor="let amigo of dato.amigos.split(',') let i=index">Mejor amigo n° {{i+1}}:
+          {{dato.amigos.trim()}}</li>
+      </td>
+    </tr>
+  </tbody>
+</table>

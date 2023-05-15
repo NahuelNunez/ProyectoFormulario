@@ -1,20 +1,22 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
+import { FormsModule } from '@angular/forms'; 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { MiComponenteComponent } from './componentes/mi-componente/mi-componente.component';
-import { MiComponente2Component } from './componentes/mi-componente2/mi-componente2.component';
+import { ClienteComponent } from './cliente/cliente.component';
+
+
 
 @NgModule({
   declarations: [
     AppComponent,
-    MiComponenteComponent,
-    MiComponente2Component
-  ],
+    ClienteComponent,
+    ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]
